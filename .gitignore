@@ -1,0 +1,14 @@
+build
+node_modules
+
+# IDE
+./idea
+.vscode/*
+!.vscode/recommended-settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# System Files
+.DS_Store
+Thumbs.db
