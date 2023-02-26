@@ -1,8 +1,14 @@
 {
-  "Main page": "Main page",
-  "Language": "English",
-  "Reload page": "Reload page",
-  "Page not found": "Page not found",
-  "Something went wrong": "Something went wrong",
-  "toggle": "togglle"
+  "Тестовый пример": "Test example",
+  "Перевод": "Translate",
+  "Главная страница": "Main page",
+  "Язык": "English",
+  "новый перевод": "новый перевод",
+  "Страница не найдена": "Page not found",
+  "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка",
+  "Обновить страницу": "Reload page",
+  "throw error": "throw error",
+  "Главная": "Main",
+  "О сайте": "About us",
+  "Переключить": "Переключить"
 }
