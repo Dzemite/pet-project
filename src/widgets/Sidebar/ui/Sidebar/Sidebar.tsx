@@ -1,10 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useState } from 'react';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
-import { Button } from 'shared/ui/Button/Button';
-import { useTranslation } from 'react-i18next';
+import {classNames} from 'shared/lib/classNames/classNames';
+import {useState} from 'react';
+import {ThemeSwitcher} from 'widgets/ThemeSwitcher';
+import {LangSwitcher} from 'widgets/LangSwitcher/LangSwitcher';
+import {Button, ButtonSize, ButtonTheme} from 'shared/ui/Button/Button';
+import {useTranslation} from 'react-i18next';
 import cls from './Sidebar.module.scss';
+import {AppLink, AppLinkTheme} from "shared/ui/AppLink/AppLink";
+import {RoutePath} from "shared/config/routeConfig/routeConfig";
+import AboutIcon from "shared/assets/icons/about-800-800.svg";
+import MainIcon from "shared/assets/icons/main-800-800.svg";
 
 interface SidebarProps {
     className?: string;
@@ -26,12 +30,38 @@ export const Sidebar = ({ className }: SidebarProps) => {
             <Button
                 data-testid="sidebar-toggle"
                 onClick={onToggle}
+                className={cls.collapseBtn}
+                theme={ButtonTheme.BACKGROUND_INVERTED}
+                square={true}
+                size={ButtonSize.L}
             >
-                {t('Переключить')}
+                {collapsed ? '>' : '<'}
             </Button>
+            <div className={cls.items}>
+                <AppLink
+                    theme={AppLinkTheme.SECONDARY}
+                    to={RoutePath.main}
+                    className={cls.item}
+                >
+                    <MainIcon className={cls.icon} />
+                    <span className={cls.link}>
+                        {t('Главная')}
+                    </span>
+                </AppLink>
+                <AppLink
+                    theme={AppLinkTheme.RED}
+                    to={RoutePath.about}
+                    className={cls.item}
+                >
+                    <AboutIcon className={cls.icon} />
+                    <span className={cls.link}>
+                        {t('О сайте')}
+                    </span>
+                </AppLink>
+            </div>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher className={cls.lang} />
+                <LangSwitcher short={collapsed} className={cls.lang} />
             </div>
         </div>
     );

@@ -27,12 +27,12 @@ module.exports = {
     'react/jsx-filename-extension': [2, {
       extensions: ['.js', '.jsx', '.tsx']
     }],
-    "@typescript-eslint/consistent-type-imports": [
-      "error",
-      {
-        "prefer": "no-type-imports",
-      }   
-    ],
+    // "@typescript-eslint/consistent-type-imports": [
+    //   "error",
+    //   {
+    //     "prefer": "no-type-imports",
+    //   }
+    // ],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'no-unused-vars': 'warn',
@@ -44,7 +44,6 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
-    '@typescript-eslint/consistent-type-imports': 'off',
     '@typescript-eslint/explicit-function-return-type': 'warn',
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
@@ -62,10 +61,19 @@ module.exports = {
   globals: {
     __IS_DEV__: true
   },
-  overrides: [{
-    files: ['**/src/**/*.test.{ts,tsx}'],
-    rules: {
-      'i18next/no-literal-string': 'off'
+  overrides: [
+      {
+        files: ['**/src/**/*.test.{ts,tsx}'],
+        rules: {
+          'i18next/no-literal-string': 'off',
+          "@typescript-eslint/no-unsafe-assignment": "off"
+        }
+      },
+    {
+      files: ['**/src/**/*.stories.{ts,tsx}'],
+      rules: {
+        "@typescript-eslint/no-unsafe-assignment": "off"
+      }
     }
-  }]
+  ]
 };
