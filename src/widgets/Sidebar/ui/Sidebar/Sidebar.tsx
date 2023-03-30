@@ -1,14 +1,14 @@
-import {classNames} from 'shared/lib/classNames/classNames';
-import {useState} from 'react';
-import {ThemeSwitcher} from 'widgets/ThemeSwitcher';
-import {LangSwitcher} from 'widgets/LangSwitcher/LangSwitcher';
-import {Button, ButtonSize, ButtonTheme} from 'shared/ui/Button/Button';
-import {useTranslation} from 'react-i18next';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useState } from 'react';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
+import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
+import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import { useTranslation } from 'react-i18next';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import AboutIcon from 'shared/assets/icons/about-20-20.svg';
+import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import cls from './Sidebar.module.scss';
-import {AppLink, AppLinkTheme} from "shared/ui/AppLink/AppLink";
-import {RoutePath} from "shared/config/routeConfig/routeConfig";
-import AboutIcon from "shared/assets/icons/about-800-800.svg";
-import MainIcon from "shared/assets/icons/main-800-800.svg";
 
 interface SidebarProps {
     className?: string;
@@ -32,8 +32,8 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 onClick={onToggle}
                 className={cls.collapseBtn}
                 theme={ButtonTheme.BACKGROUND_INVERTED}
-                square={true}
                 size={ButtonSize.L}
+                square
             >
                 {collapsed ? '>' : '<'}
             </Button>
@@ -49,7 +49,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                     </span>
                 </AppLink>
                 <AppLink
-                    theme={AppLinkTheme.RED}
+                    theme={AppLinkTheme.SECONDARY}
                     to={RoutePath.about}
                     className={cls.item}
                 >
@@ -61,7 +61,10 @@ export const Sidebar = ({ className }: SidebarProps) => {
             </div>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher short={collapsed} className={cls.lang} />
+                <LangSwitcher
+                    short={collapsed}
+                    className={cls.lang}
+                />
             </div>
         </div>
     );

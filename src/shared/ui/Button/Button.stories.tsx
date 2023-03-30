@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import {Button, ButtonSize, ButtonTheme} from './Button';
+import { Button, ButtonSize, ButtonTheme } from './Button';
 
 export default {
     title: 'shared/Button',
@@ -26,6 +26,12 @@ Clear.args = {
     theme: ButtonTheme.CLEAR,
 };
 
+export const ClearInverted = Template.bind({});
+ClearInverted.args = {
+    children: 'Text',
+    theme: ButtonTheme.CLEAR_INVERTED,
+};
+
 export const Outline = Template.bind({});
 Outline.args = {
     children: 'Text',
@@ -36,14 +42,14 @@ export const OutlineSizeL = Template.bind({});
 OutlineSizeL.args = {
     children: 'Text',
     theme: ButtonTheme.OUTLINE,
-    size: ButtonSize.L
+    size: ButtonSize.L,
 };
 
-export const OutlineSizeXL = Template.bind({});
-OutlineSizeXL.args = {
+export const OutlineSizeXl = Template.bind({});
+OutlineSizeXl.args = {
     children: 'Text',
     theme: ButtonTheme.OUTLINE,
-    size: ButtonSize.XL
+    size: ButtonSize.XL,
 };
 
 export const OutlineDark = Template.bind({});
@@ -57,10 +63,10 @@ export const BackgroundTheme = Template.bind({});
 BackgroundTheme.args = {
     children: 'Text',
     theme: ButtonTheme.BACKGROUND,
-}
+};
 
-export const BackgroundThemeInverted = Template.bind({});
-BackgroundThemeInverted.args = {
+export const BackgroundInverted = Template.bind({});
+BackgroundInverted.args = {
     children: 'Text',
     theme: ButtonTheme.BACKGROUND_INVERTED,
 };
@@ -72,18 +78,18 @@ Square.args = {
     square: true,
 };
 
-export const SquareL = Template.bind({});
-SquareL.args = {
+export const SquareSizeL = Template.bind({});
+SquareSizeL.args = {
     children: '>',
     theme: ButtonTheme.BACKGROUND_INVERTED,
     square: true,
-    size: ButtonSize.L
+    size: ButtonSize.L,
 };
 
-export const SquareXL = Template.bind({});
-SquareXL.args = {
+export const SquareSizeXl = Template.bind({});
+SquareSizeXl.args = {
     children: '>',
     theme: ButtonTheme.BACKGROUND_INVERTED,
     square: true,
-    size: ButtonSize.XL
+    size: ButtonSize.XL,
 };

@@ -8,7 +8,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:i18next/recommended',
-    'plugin:storybook/recommended'
+    'plugin:storybook/recommended',
+    'plugin:react-hooks/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -19,7 +20,12 @@ module.exports = {
     sourceType: 'module',
     project: ['./tsconfig.json']
   },
-  plugins: ['react', '@typescript-eslint', 'i18next'],
+  plugins: [
+      'react',
+    '@typescript-eslint',
+    'i18next',
+    'react-hooks',
+  ],
   rules: {
     'react/jsx-indent': [2, 4],
     'react/jsx-indent-props': [2, 4],
@@ -49,6 +55,8 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/no-floating-promises': 'warn',
     '@typescript-eslint/naming-convention': 'off',
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
     'i18next/no-literal-string': ['error', {
       markupOnly: true,
       ignoreAttribute: ['data-testid', 'to']
@@ -63,10 +71,11 @@ module.exports = {
   },
   overrides: [
       {
-        files: ['**/src/**/*.test.{ts,tsx}'],
+        files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
         rules: {
           'i18next/no-literal-string': 'off',
-          "@typescript-eslint/no-unsafe-assignment": "off"
+          '@typescript-eslint/no-unsafe-assignment': 'off',
+          'max-len': 'off',
         }
       },
     {
