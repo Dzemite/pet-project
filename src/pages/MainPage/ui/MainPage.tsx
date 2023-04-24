@@ -1,14 +1,18 @@
-import React from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {Counter} from "entities/Counter";
 
 const MainPage = () => {
     const { t } = useTranslation();
 
+    const [value, setValue] = useState('');
+
+    const onChange = (str: string) => {
+        setValue(str);
+    };
+
     return (
         <div>
             {t('Главная страница')}
-            <Counter />
         </div>
     );
 };
